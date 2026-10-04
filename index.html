@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>序：关于我 | 我的个人传记</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       VitePress 官方标准设计规范 (1:1 还原 transky.mtf.wiki)
+       ========================================================================== */
+    :root {
+      --vp-c-bg: #ffffff;
+      --vp-c-bg-soft: #f6f6f7;
+      --vp-c-bg-mute: #f1f1f2;
+      --vp-c-bg-alt: #f6f6f7;
+      --vp-c-border: rgba(60, 60, 67, 0.12);
+      --vp-c-divider: rgba(60, 60, 67, 0.12);
+      --vp-c-gutter: rgba(60, 60, 67, 0.08);
+      --vp-c-text-1: #213547;
+      --vp-c-text-2: rgba(60, 60, 67, 0.78);
+      --vp-c-text-3: rgba(60, 60, 67, 0.56);
+      
+      /* VitePress / Vue 经典墨绿色系 */
+      --vp-c-brand-1: #10b981;
+      --vp-c-brand-2: #059669;
+      --vp-c-brand-soft: rgba(16, 185, 129, 0.14);
+      --vp-badge-bg: rgba(16, 185, 129, 0.12);
+
+      --vp-nav-height: 64px;
+      --vp-sidebar-width: 290px;
+      --vp-aside-width: 224px;
+      --vp-layout-max-width: 1440px;
+      --vp-content-max-width: 760px;
+      --vp-font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --vp-font-family-mono: "JetBrains Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+
+    html.dark {
+      --vp-c-bg: #1b1b1f;
+      --vp-c-bg-soft: #202127;
+      --vp-c-bg-mute: #2e2e32;
+      --vp-c-bg-alt: #161618;
+      --vp-c-border: rgba(84, 84, 88, 0.48);
+      --vp-c-divider: rgba(84, 84, 88, 0.35);
+      --vp-c-gutter: #000000;
+      --vp-c-text-1: rgba(255, 255, 245, 0.86);
+      --vp-c-text-2: rgba(235, 235, 245, 0.6);
+      --vp-c-text-3: rgba(235, 235, 245, 0.38);
+      --vp-c-brand-1: #34d399;
+      --vp-c-brand-2: #10b981;
+      --vp-c-brand-soft: rgba(16, 185, 129, 0.16);
+      --vp-badge-bg: rgba(52, 211, 153, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--vp-c-bg);
+      color: var(--vp-c-text-1);
+      font-family: var(--vp-font-family-base);
+      font-size: 16px;
+      line-height: 1.75;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.25s, color 0.25s;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* 顶部导航栏 (Navbar) */
+    .vp-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--vp-nav-height);
+      background-color: var(--vp-c-bg);
+      border-bottom: 1px solid var(--vp-c-divider);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .vp-nav-title {
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--vp-c-text-1);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .vp-nav-title svg {
+      color: var(--vp-c-brand-1);
+    }
+
+    .vp-badge {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--vp-badge-bg);
+      color: var(--vp-c-brand-1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: var(--vp-font-family-mono);
+    }
+
+    .vp-nav-tools {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* 搜索框 */
+    .vp-search-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background-color: var(--vp-c-bg-mute);
+      border: 1px solid var(--vp-c-border);
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--vp-c-text-2);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .vp-search-box:hover {
+      border-color: var(--vp-c-brand-1);
+    }
+
+    .vp-search-key {
+      font-size: 11px;
+      border: 1px solid var(--vp-c-border);
+      border-radius: 4px;
+      padding: 1px 5px;
+      background: var(--vp-c-bg-soft);
+      font-family: var(--vp-font-family-mono);
+    }
+
+    .vp-icon-btn {
+      background: none;
+      border: 1px solid var(--vp-c-border);
+      cursor: pointer;
+      color: var(--vp-c-text-2);
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      transition: all 0.2s;
+      background-color: var(--vp-c-bg-soft);
+    }
+
+    .vp-icon-btn:hover {
+      color: var(--vp-c-text-1);
+      border-color: var(--vp-c-brand-1);
+    }
+
+    /* 整体布局架构 */
+    .vp-layout {
+      display: flex;
+      padding-top: var(--vp-nav-height);
+      min-height: 100vh;
+      max-width: var(--vp-layout-max-width);
+      margin: 0 auto;
+    }
+
+    /* 左侧边栏 (Sidebar) */
+    .vp-sidebar {
+      position: fixed;
+      top: var(--vp-nav-height);
+      bottom: 0;
+      left: 0;
+      width: var(--vp-sidebar-width);
+      background-color: var(--vp-c-bg-soft);
+      border-right: 1px solid var(--vp-c-divider);
+      overflow-y: auto;
+      padding: 24px 16px 64px 32px;
+      z-index: 50;
+      transition: transform 0.25s ease;
+    }
+
+    .vp-sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .vp-sidebar::-webkit-scrollbar-thumb {
+      background: var(--vp-c-divider);
+      border-radius: 4px;
+    }
+
+    .vp-sidebar-group {
+      margin-bottom: 24px;
+    }
+
+    .vp-sidebar-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--vp-c-text-3);
+      padding: 4px 12px 8px;
+    }
+
+    .vp-sidebar-item {
+      display: block;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: var(--vp-c-text-2);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      margin-bottom: 2px;
+      border-left: 2px solid transparent;
+    }
+
+    .vp-sidebar-item:hover {
+      color: var(--vp-c-brand-1);
+      background-color: var(--vp-c-bg);
+    }
+
+    .vp-sidebar-item.active {
+      color: var(--vp-c-brand-1);
+      background-color: var(--vp-c-brand-soft);
+      border-left-color: var(--vp-c-brand-1);
+      font-weight: 600;
+    }
+
+    /* 中间正文区 */
+    .vp-content-wrapper {
+      flex: 1;
+      margin-left: var(--vp-sidebar-width);
+      display: flex;
+      justify-content: center;
+      padding: 32px 48px 64px;
+    }
+
+    .vp-content {
+      width: 100%;
+      max-width: var(--vp-content-max-width);
+      min-width: 0;
+    }
+
+    /* 右侧本页大纲 (Aside / TOC) */
+    .vp-aside {
+      width: var(--vp-aside-width);
+      flex-shrink: 0;
+      margin-left: 48px;
+      display: block;
+    }
+
+    .vp-aside-content {
+      position: sticky;
+      top: calc(var(--vp-nav-height) + 32px);
+      padding-left: 16px;
+      border-left: 1px solid var(--vp-c-divider);
+    }
+
+    .vp-aside-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--vp-c-text-1);
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .vp-outline-link {
+      display: block;
+      font-size: 13px;
+      color: var(--vp-c-text-2);
+      text-decoration: none;
+      line-height: 2;
+      transition: color 0.2s;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .vp-outline-link:hover, .vp-outline-link.active {
+      color: var(--vp-c-brand-1);
+    }
+
+    /* 正文样式 */
+    .vp-doc h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--vp-c-divider);
+      color: var(--vp-c-text-1);
+    }
+
+    .vp-doc p {
+      margin: 16px 0;
+      color: var(--vp-c-text-1);
+      line-height: 1.85;
+      font-size: 16px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background-color 0.15s, border-left 0.15s;
+      border-left: 3px solid transparent;
+    }
+
+    /* 聚光灯模式 (Spotlight) */
+    .spotlight-active .vp-doc p:hover {
+      background-color: var(--vp-c-brand-soft);
+      border-left-color: var(--vp-c-brand-1);
+    }
+
+    /* VitePress 标准 ::: tip 容器 */
+    .custom-block {
+      margin: 20px 0 24px;
+      padding: 16px 20px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+    }
+
+    .custom-block.tip {
+      background-color: var(--vp-c-brand-soft);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .custom-block-title {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--vp-c-brand-1);
+    }
+
+    .custom-block p {
+      margin: 0;
+      padding: 0;
+      border: none;
+      font-size: 14.5px;
+      color: var(--vp-c-text-2);
+      line-height: 1.7;
+    }
+
+    /* 底部双向翻页导航 (Pager) */
+    .vp-pager {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--vp-c-divider);
+    }
+
+    .vp-pager-link {
+      display: flex;
+      flex-direction: column;
+      padding: 14px 20px;
+      border: 1px solid var(--vp-c-border);
+      border-radius: 8px;
+      text-decoration: none;
+      width: 48%;
+      background: var(--vp-c-bg-soft);
+      transition: border-color 0.2s, background-color 0.2s;
+      cursor: pointer;
+    }
+
+    .vp-pager-link:hover {
+      border-color: var(--vp-c-brand-1);
+      background-color: var(--vp-c-bg);
+    }
+
+    .vp-pager-desc {
+      font-size: 12px;
+      color: var(--vp-c-text-3);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .vp-pager-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--vp-c-brand-1);
+    }
+
+    .vp-pager-link.next {
+      text-align: right;
+      margin-left: auto;
+    }
+
+    /* 页脚元数据信息 */
+    .vp-page-meta {
+      margin-top: 36px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--vp-c-text-3);
+      padding-bottom: 24px;
+    }
+
+    /* 搜索弹窗 */
+    .vp-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 14vh;
+    }
+
+    .vp-modal-backdrop.open {
+      display: flex;
+    }
+
+    .vp-modal-card {
+      background: var(--vp-c-bg);
+      border: 1px solid var(--vp-c-border);
+      border-radius: 10px;
+      width: 90%;
+      max-width: 580px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .vp-modal-input {
+      width: 100%;
+      padding: 16px 20px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--vp-c-divider);
+      font-size: 16px;
+      color: var(--vp-c-text-1);
+      outline: none;
+      font-family: inherit;
+    }
+
+    .vp-modal-results {
+      max-height: 320px;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    .vp-modal-item {
+      padding: 10px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+      color: var(--vp-c-text-1);
+      font-size: 14px;
+      margin-bottom: 2px;
+      transition: background-color 0.15s;
+    }
+
+    .vp-modal-item:hover {
+      background: var(--vp-c-brand-soft);
+      color: var(--vp-c-brand-1);
+    }
+
+    /* 移动端菜单按钮与自适应 */
+    .vp-mobile-menu-btn {
+      display: none;
+    }
+
+    @media (max-width: 1200px) {
+      .vp-aside {
+        display: none;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .vp-sidebar {
+        transform: translateX(-100%);
+        width: 280px;
+      }
+
+      .vp-sidebar.open {
+        transform: translateX(0);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .vp-content-wrapper {
+        margin-left: 0;
+        padding: 24px 20px 48px;
+      }
+
+      .vp-mobile-menu-btn {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body class="spotlight-active">
+
+  <!-- 顶部导航栏 -->
+  <header class="vp-nav">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <button class="vp-icon-btn vp-mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <span>目录</span>
+      </button>
+      <a href="#" class="vp-nav-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span>我的个人传记</span>
+        <span class="vp-badge">VitePress</span>
+      </a>
+    </div>
+
+    <div class="vp-nav-tools">
+      <div class="vp-search-box" id="searchTrigger">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>搜索文档</span>
+        <span class="vp-search-key">⌘ K</span>
+      </div>
+
+      <!-- Spotlight 聚光灯模式 -->
+      <button class="vp-icon-btn" id="spotlightBtn" title="聚光灯模式 (高亮鼠标悬停段落)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <span>聚光灯: ON</span>
+      </button>
+
+      <!-- 深浅模式切换 -->
+      <button class="vp-icon-btn" id="themeBtn" title="切换深色/浅色模式">
+        <svg id="themeIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span id="themeText">浅色模式</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 页面主体容器 -->
+  <div class="vp-layout">
+    
+    <!-- 左侧 VitePress 规范侧边栏 -->
+    <aside class="vp-sidebar" id="sidebar">
+      <div class="vp-sidebar-group">
+        <div class="vp-sidebar-title">卷首与序章</div>
+        <div class="vp-sidebar-item active" data-index="0">序：关于我</div>
+      </div>
+
+      <div class="vp-sidebar-group">
+        <div class="vp-sidebar-title">第一部分· 幼年与家庭</div>
+        <div class="vp-sidebar-item" data-index="1">一、出生</div>
+        <div class="vp-sidebar-item" data-index="2">二、两岁以后</div>
+        <div class="vp-sidebar-item" data-index="3">三、小时候的我</div>
+        <div class="vp-sidebar-item" data-index="4">四、父亲把我接走</div>
+        <div class="vp-sidebar-item" data-index="5">五、我的家族</div>
+      </div>
+
+      <div class="vp-sidebar-group">
+        <div class="vp-sidebar-title">第二部分· 转折与探索</div>
+        <div class="vp-sidebar-item" data-index="6">六、曾经规划好的未来</div>
+        <div class="vp-sidebar-item" data-index="7">七、来到新的学校</div>
+        <div class="vp-sidebar-item" data-index="8">八、家庭的变化</div>
+        <div class="vp-sidebar-item" data-index="9">九、另一段生活</div>
+        <div class="vp-sidebar-item" data-index="10">十、我开始重新认识自己</div>
+      </div>
+
+      <div class="vp-sidebar-group">
+        <div class="vp-sidebar-title">第三部分· 思考与向前</div>
+        <div class="vp-sidebar-item" data-index="11">十一、2025年</div>
+        <div class="vp-sidebar-item" data-index="12">十二、现在</div>
+        <div class="vp-sidebar-item" data-index="13">十三、我想要的生活</div>
+        <div class="vp-sidebar-item" data-index="14">十四、写给未来的自己</div>
+        <div class="vp-sidebar-item" data-index="15">尾声</div>
+      </div>
+    </aside>
+
+    <!-- 中间正文区域 -->
+    <div class="vp-content-wrapper">
+      <div class="vp-content vp-doc">
+        
+        <h1 id="chapter-title">序：关于我</h1>
+
+        <div class="custom-block tip" id="chapter-tip">
+          <div class="custom-block-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <span>寄语与编者注</span>
+          </div>
+          <p id="chapter-tip-text">人生还远远没有结束。如果一定要记录它，那么我想从最开始说起。</p>
+        </div>
+
+        <div id="chapter-body"></div>
+
+        <!-- VitePress 经典底部 Pager -->
+        <nav class="vp-pager">
+          <a class="vp-pager-link prev" id="prevBtn" style="visibility: hidden;">
+            <span class="vp-pager-desc">上一页</span>
+            <span class="vp-pager-title" id="prevTitle">上一篇</span>
+          </a>
+          <a class="vp-pager-link next" id="nextBtn">
+            <span class="vp-pager-desc">下一页</span>
+            <span class="vp-pager-title" id="nextTitle">一、出生</span>
+          </a>
+        </nav>
+
+        <!-- 页脚元数据 -->
+        <div class="vp-page-meta">
+          <span>在 GitHub 上编辑此页面 · 最后更新: 2026-10</span>
+          <span>文档排版基于标准 VitePress 规范</span>
+        </div>
+
+      </div>
+
+      <!-- 右侧 Aside 本页大纲 -->
+      <aside class="vp-aside">
+        <div class="vp-aside-content">
+          <div class="vp-aside-title">本页大纲</div>
+          <nav>
+            <a href="#chapter-title" class="vp-outline-link active">章节正文</a>
+            <a href="#key-section" class="vp-outline-link">核心转折与思考</a>
+            <a href="#prevBtn" class="vp-outline-link">本页结语</a>
+          </nav>
+        </div>
+      </aside>
+
+    </div>
+
+  </div>
+
+  <!-- 全局搜索弹窗 (⌘ K) -->
+  <div class="vp-modal-backdrop" id="searchModal">
+    <div class="vp-modal-card">
+      <input type="text" class="vp-modal-input" id="searchInput" placeholder="搜索文档内容或章节 (如: 出生, 家庭, 2025, 生活)..." autofocus>
+      <div class="vp-modal-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <script>
+    const chapters = [
+      {
+        title: "序：关于我",
+        tip: "人生还远远没有结束。如果一定要记录它，那么我想从最开始说起。",
+        paragraphs: [
+          "我出生于2011年。",
+          "如果只看一个人的出生年份，很难想象这个数字背后究竟会发生多少事情。",
+          "一个孩子出生的时候，并不知道自己的家庭是什么样子，也不知道未来会走向哪里。那时候的我同样如此。",
+          "后来，我一点一点长大，才开始认识自己的家庭，认识身边的人，也开始认识自己。",
+          "我的成长并不是一条始终平坦的道路。",
+          "有过被人照顾、被人疼爱的童年，也有过家庭关系发生变化时的迷茫；有过对未来的期待，也有过原本规划好的道路突然发生改变；有过对生活的自信，也有过不知道自己究竟应该走向哪里的时期。",
+          "现在回头看，我的人生还远远没有结束。",
+          "但如果要记录它，那么我想从最开始说起。"
+        ]
+      },
+      {
+        title: "一、出生",
+        tip: "那时的我甚至不知道“家族”是什么。我只是一个刚刚来到这个世界上的孩子。",
+        paragraphs: [
+          "2011年，我出生了。",
+          "我的家庭在当时有着比较不错的生活条件。",
+          "父亲当时有自己的事业，家庭经济条件相对宽裕。我的爷爷曾经担任过区长，奶奶是一名教师。",
+          "我的家族中还有一些亲属生活在不同的地方，有的人在国内，有的人在国外。",
+          "在我出生的时候，家里还举办过宴席，有不少亲戚前来。",
+          "这些事情对于当时的我而言当然没有任何意义。那时的我甚至不知道“家族”是什么。我只是一个刚刚来到这个世界上的孩子。",
+          "但后来我才知道，自己的出生本身就伴随着一些我小时候无法理解的事情。",
+          "我的母亲没有出现在我的童年里。关于她，我从很小的时候开始就有很多疑问。只是那时的我还太小，无法理解这些问题。",
+          "于是，我就这样在一个并不完全简单的家庭环境里慢慢长大。"
+        ]
+      },
+      {
+        title: "二、两岁以后",
+        tip: "现在回头看，那是一段相对轻松的童年。我并没有意识到，这些经历其实也在慢慢塑造着我。",
+        paragraphs: [
+          "两岁的时候，我来到了后来长期生活的地方。",
+          "小时候很长一段时间，我主要由爷爷奶奶照顾。他们对我很好。",
+          "那时候的生活条件也不错。小时候的我想要什么，只要不是特别过分，爷爷奶奶通常都会尽量满足。",
+          "现在回头看，那是一段相对轻松的童年。那时候的我没有什么特别大的烦恼，每天想的事情很简单：学习、玩耍、兴趣班，以及一些孩子才会在意的事情。",
+          "我也接触过不少兴趣项目：围棋、书法、美术、舞蹈、音乐……",
+          "这些东西构成了我童年时期的一部分。我并没有意识到，这些经历其实也在慢慢塑造着我。"
+        ]
+      },
+      {
+        title: "三、小时候的我",
+        tip: "童年时期的很多事情，后来都会变成我人生中的一个个转折点。",
+        paragraphs: [
+          "小时候的我在学习方面表现得比较好。",
+          "那时的我对很多事情都比较有兴趣，也愿意去尝试新的东西。",
+          "我习惯了别人对我的肯定，习惯了自己在一些事情上能够做好，所以那时候的我其实有着比较强的自信。",
+          "但我不知道的是，随着年龄增长，我所面对的世界也会越来越复杂。",
+          "童年时期的很多事情，后来都会变成我人生中的一个个转折点。而其中最重要的一个变化，就是家庭。"
+        ]
+      },
+      {
+        title: "四、父亲把我接走",
+        tip: "也就是从那个时期开始，我逐渐产生了一个非常明确的念头：以后，我要有自己的生活。",
+        paragraphs: [
+          "后来，父亲把我接走了。",
+          "在此之前，我和父亲之间其实没有特别多的相处时间。我的童年主要是在爷爷奶奶身边度过的。所以当生活环境发生改变以后，我需要重新适应。",
+          "父亲后来组建了新的家庭。那时候我还小，并不知道很多事情。我曾经以为身边的人就是自己的母亲。直到小学四年级左右，我才知道事实并不是这样。她并不是我的亲生母亲。",
+          "那是我第一次真正意识到：原来自己小时候所理解的家庭，并不是完整的真相。",
+          "后来，父亲和继母也离婚了。这些事情对于当时的我来说，并不容易理解。大人的世界有很多事情，孩子没有办法决定，也没有办法改变。我只能接受它们。",
+          "也就是从那个时期开始，我逐渐产生了一个非常明确的念头：以后，我要有自己的生活。"
+        ]
+      },
+      {
+        title: "五、我的家族",
+        tip: "因为当你知道身边的人都在努力向前时，就很难允许自己一直停在原地。",
+        paragraphs: [
+          "随着年龄增长，我逐渐知道了更多关于家人的事情。",
+          "我有哥哥，也有姐姐。哥哥已经将近30岁，是大连理工大学毕业的，已经上了班；姐姐也在上海交大上学。他们都有着自己的道路。",
+          "家族里也有一些人在不同地方生活、学习和工作。",
+          "从某种意义上说，我一直生活在一个对“优秀”有一定期待的家庭环境里。身边的人或多或少都会给我一种感觉：你应该成为一个优秀的人。",
+          "小时候，我不会觉得这种期待有什么压力。但长大以后，我逐渐发现，期待本身也会成为一种压力。因为当你知道身边的人都在努力向前时，就很难允许自己一直停在原地。",
+          "我也开始越来越在意自己究竟能够做什么。甚至这只是家族中一个小小的分支而已，而且还是那么不起眼的一点。"
+        ]
+      },
+      {
+        title: "六、曾经规划好的未来",
+        tip: "原来已经规划好的未来，也因此发生了改变。我不得不重新选择。",
+        paragraphs: [
+          "在2022年以前，我曾经有过另一套比较明确的未来规划。",
+          "当时家里曾考虑让我去济南外国语上学。按照当时的设想，我之后可能会接受另一种教育，甚至考虑高中以后出国。",
+          "那时候，这似乎是一条已经摆在我面前的道路。我也曾经以为，只要按照这条路继续走下去，未来就会顺理成章地发生。",
+          "可是后来，家庭情况发生了变化。经济状况也不再像以前那样稳定。一些原本能够轻易做出的决定，开始需要重新考虑。原来已经规划好的未来，也因此发生了改变。",
+          "我不得不重新选择。"
+        ]
+      },
+      {
+        title: "七、来到新的学校",
+        tip: "一个人的成长，本身就是不断发现自己过去的认识并不完整的过程。",
+        paragraphs: [
+          "后来，我进入了现在的学校。",
+          "对于当时的我来说，这并不是一次简单的换学校。它意味着我需要进入一个自己并不熟悉的环境。",
+          "这里的人和我过去认识的人不一样。同学之间的生活方式、家庭背景、相处方式，也和我以前接触到的环境存在差别。",
+          "刚开始的时候，我其实并不适应。我甚至会觉得自己和周围的人格格不入。过去的生活让我形成了一些比较固定的认识。当我来到一个完全不同的环境后，这些认识开始不断受到冲击。",
+          "我曾经不太愿意真正融入这里，也曾经觉得自己和别人之间存在明显的差距。",
+          "现在回头看，那时候的自己其实还不够成熟。因为一个人的成长，本身就是不断发现自己过去的认识并不完整的过程。"
+        ]
+      },
+      {
+        title: "八、家庭的变化",
+        tip: "有些事情并不是努力就一定能够挽回，有些事情也不是孩子能够解决的。我能做的，只能是接受已经发生的事情，然后继续生活。",
+        paragraphs: [
+          "后来，家里的事情也越来越复杂。人与人之间会产生矛盾，家庭关系会发生变化，经济状况也不会永远保持在同一个水平。",
+          "以前一些我认为理所当然的事情，后来都不再理所当然。这让我逐渐意识到：一个家庭并不是一个永远不会变化的东西。",
+          "小时候，我觉得家庭就是家人永远在一起。后来我才发现，人会离开，关系会改变，生活也会改变。",
+          "有些事情并不是努力就一定能够挽回，有些事情也不是孩子能够解决的。我能做的，只能是接受已经发生的事情，然后继续生活。"
+        ]
+      },
+      {
+        title: "九、另一段生活",
+        tip: "环境、关系、压力以及自己当时的心理状态，都会影响一个人的表现。这也是我后来越来越能够理解自己的一件事情。",
+        paragraphs: [
+          "后来，我曾经在亲戚那里生活过一段时间。那段经历给我的感受很特别。",
+          "在那里，我的生活状态发生了一些变化。我感觉自己变得更加轻松，学习状态也有所好转。那时候的我，似乎更容易找到自己的节奏。",
+          "这段经历让我第一次非常明显地感觉到：一个人的状态，真的会受到周围环境的影响。",
+          "很多时候，一个人并不是突然变好了，也不是突然变差了。环境、关系、压力以及自己当时的心理状态，都会影响一个人的表现。这也是我后来越来越能够理解自己的一件事情。"
+        ]
+      },
+      {
+        title: "十、我开始重新认识自己",
+        tip: "如果一个人一直通过别人来证明自己，那么无论取得多少成绩，都很难真正满足。于是，我开始思考一个问题：我到底想成为一个什么样的人？",
+        paragraphs: [
+          "经历了这些事情以后，我开始慢慢重新认识自己。",
+          "我发现自己并不是一个永远都能够保持优秀状态的人。我会有动力，也会没有动力；会对未来充满期待，也会迷茫；有时候觉得自己什么都可以做到，有时候又觉得自己什么都做不好。",
+          "我以前很在意别人怎么看我。后来慢慢发现，如果一个人一直通过别人来证明自己，那么无论取得多少成绩，都很难真正满足。因为永远会有比自己更优秀的人。",
+          "于是，我开始思考一个问题：我到底想成为一个什么样的人？"
+        ]
+      },
+      {
+        title: "十一、2025年",
+        tip: "知道是一回事，做到又是另一回事。这也许是现在的我仍然需要面对的问题。",
+        paragraphs: [
+          "2025年10月，是我人生中一个比较特殊的阶段。那段时间发生的一些事情，让我重新开始思考自己的生活。",
+          "很多以前没有认真想过的问题，突然变得非常具体：家庭、学习、未来、自己究竟想做什么，以及，我到底应该怎么继续走下去。",
+          "那时候的我其实很矛盾。我知道自己应该努力，也知道未来还有很多事情需要自己去完成。可是知道是一回事，做到又是另一回事。",
+          "有时候，我明明知道应该学习，却没有办法真正静下心来。明明知道时间很重要，却还是会把时间浪费掉。这也许是现在的我仍然需要面对的问题。"
+        ]
+      },
+      {
+        title: "十二、现在",
+        tip: "未来不是别人写好的。",
+        paragraphs: [
+          "现在的我仍然只是一个中学生。我并没有走到人生真正重要的阶段。我还没有成功，也没有一个已经完全确定的未来。我甚至还存在很多问题。",
+          "但和小时候相比，我至少开始真正认识自己。我知道自己有哪些优点，也知道自己有哪些缺点。我知道自己想要什么，也知道自己目前还没有能力完全得到它们。",
+          "我不再觉得人生一定会按照某一条已经规划好的路线发展。因为我已经经历过一次重又一次的变化。",
+          "所以现在的我更愿意相信：未来不是别人写好的。"
+        ]
+      },
+      {
+        title: "十三、我想要的生活",
+        tip: "我希望未来的某一天可以说：“这个人，是靠自己走到这里的。”",
+        paragraphs: [
+          "我希望以后能够拥有真正属于自己的生活。我不希望自己永远生活在别人的评价里，也不希望别人认识我的时候，只是因为我的家庭。",
+          "我的家庭是我人生的一部分，我的童年也是我人生的一部分。那些经历无论好坏，都已经成为了我的过去。我不会否认它们，但我也不希望自己永远停留在过去。",
+          "我希望未来的某一天，当别人谈起我的时候，可以说：“这个人，是靠自己走到这里的。”",
+          "这句话对我来说，可能比别人说我出生在怎样的家庭、拥有怎样的条件更加重要。"
+        ]
+      },
+      {
+        title: "十四、写给未来的自己",
+        tip: "我不想让自己的人生就这样结束在“本来可以”。哪怕走得慢一点，至少我还在走。",
+        paragraphs: [
+          "现在的我还没有答案。我不知道未来会考上什么学校，不知道会从事什么职业，不知道以后会生活在哪里，甚至不知道现在很多让我觉得重要的事情，几年以后还会不会重要。",
+          "但我知道一件事情：我不想让自己的人生就这样结束在“本来可以”。我不希望多年以后回头看，发现自己明明拥有过机会，却什么都没有做。",
+          "所以我想继续向前。哪怕走得慢一点，哪怕中途会迷茫，哪怕有时候会停下来——至少我还在走。"
+        ]
+      },
+      {
+        title: "尾声",
+        tip: "“你当时虽然没有看清未来，但至少，你没有放弃往前走。”",
+        paragraphs: [
+          "2011年，我出生。那时候的我什么都不知道。不知道家庭意味着什么，不知道未来在哪里，也不知道自己最终会经历什么。",
+          "两岁以后，我在爷爷奶奶身边长大。后来，我被父亲接走。小学四年级，我第一次知道自己的家庭并不像想象中那么简单。后来家庭关系发生变化，原本规划好的未来也发生改变。我从一个环境走到另一个环境，从一个阶段走到另一个阶段。",
+          "有些东西失去了，也有些东西重新获得。有些事情曾经让我难过，也有一些经历让我成长。",
+          "如果一定要给过去的自己一个评价，我想我不会说他是一个成功的人，也不会说他是一个失败的人。他只是一个正在长大的孩子。一个经历过一些事情、犯过一些错误、迷茫过，也仍然在寻找自己方向的孩子。",
+          "而现在，我仍然年轻。人生真正漫长的部分，还没有开始。所以这篇传记其实并不是结尾。它只是把我从2011年写到了现在。",
+          "至于以后会发生什么——我不知道。",
+          "但我希望未来的我回头看今天的时候，能够对现在的自己说：“你当时虽然没有看清未来，但至少，你没有放弃往前走。”"
+        ]
+      }
+    ];
+
+    let currentIndex = 0;
+
+    function renderChapter(index) {
+      currentIndex = index;
+      const ch = chapters[index];
+      document.title = `${ch.title} | 我的个人传记`;
+      document.getElementById('chapter-title').innerText = ch.title;
+      document.getElementById('chapter-tip-text').innerText = ch.tip;
+
+      const bodyEl = document.getElementById('chapter-body');
+      bodyEl.innerHTML = ch.paragraphs.map((p, i) => {
+        if (i === Math.floor(ch.paragraphs.length / 2)) {
+          return `<p id="key-section">${p}</p>`;
+        }
+        return `<p>${p}</p>`;
+      }).join('');
+
+      // 侧边栏当前激活项高亮
+      document.querySelectorAll('.vp-sidebar-item').forEach(item => {
+        if (parseInt(item.getAttribute('data-index')) === index) {
+          item.classList.add('active');
+          item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      // 底部 Pager 前后导航更新
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      if (index > 0) {
+        prevBtn.style.visibility = 'visible';
+        document.getElementById('prevTitle').innerText = chapters[index - 1].title;
+      } else {
+        prevBtn.style.visibility = 'hidden';
+      }
+
+      if (index < chapters.length - 1) {
+        nextBtn.style.visibility = 'visible';
+        document.getElementById('nextTitle').innerText = chapters[index + 1].title;
+      } else {
+        nextBtn.style.visibility = 'hidden';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 侧边栏点击切章
+    document.querySelectorAll('.vp-sidebar-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const idx = parseInt(item.getAttribute('data-index'));
+        renderChapter(idx);
+        document.getElementById('sidebar').classList.remove('open');
+      });
+    });
+
+    // 翻页器点击
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentIndex > 0) renderChapter(currentIndex - 1);
+    });
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (currentIndex < chapters.length - 1) renderChapter(currentIndex + 1);
+    });
+
+    // 深色 / 浅色模式切换
+    const themeBtn = document.getElementById('themeBtn');
+    const themeText = document.getElementById('themeText');
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      themeText.innerText = isDark ? '深色模式' : '浅色模式';
+    });
+
+    // 聚光灯 (Spotlight) 模式开关
+    let spotlight = true;
+    const spotlightBtn = document.getElementById('spotlightBtn');
+    spotlightBtn.addEventListener('click', () => {
+      spotlight = !spotlight;
+      document.body.classList.toggle('spotlight-active', spotlight);
+      spotlightBtn.querySelector('span').innerText = spotlight ? '聚光灯: ON' : '聚光灯: OFF';
+    });
+
+    // 全局搜索弹窗 (⌘ K)
+    const searchModal = document.getElementById('searchModal');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    function openSearch() {
+      searchModal.classList.add('open');
+      searchInput.value = '';
+      renderSearchResults('');
+      setTimeout(() => searchInput.focus(), 60);
+    }
+    function closeSearch() {
+      searchModal.classList.remove('open');
+    }
+
+    document.getElementById('searchTrigger').addEventListener('click', openSearch);
+    window.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openSearch();
+      }
+      if (e.key === 'Escape') {
+        closeSearch();
+      }
+    });
+
+    searchModal.addEventListener('click', (e) => {
+      if (e.target === searchModal) closeSearch();
+    });
+
+    function renderSearchResults(keyword) {
+      if (!keyword.trim()) {
+        searchResults.innerHTML = chapters.map((c, i) => `
+          <div class="vp-modal-item" onclick="renderChapter(${i}); closeSearch();">
+            <strong>${c.title}</strong>
+            <div style="font-size: 12px; color: var(--vp-c-text-3); margin-top:2px;">${c.tip}</div>
+          </div>
+        `).join('');
+        return;
+      }
+      const matched = [];
+      chapters.forEach((c, idx) => {
+        const hasTitle = c.title.includes(keyword);
+        const matchedP = c.paragraphs.find(p => p.includes(keyword));
+        if (hasTitle || matchedP) {
+          matched.push({ idx, title: c.title, text: matchedP || c.tip });
+        }
+      });
+      if (matched.length === 0) {
+        searchResults.innerHTML = '<div style="padding:16px; color:var(--vp-c-text-3); text-align:center;">未找到相关内容</div>';
+      } else {
+        searchResults.innerHTML = matched.map(m => `
+          <div class="vp-modal-item" onclick="renderChapter(${m.idx}); closeSearch();">
+            <strong>${m.title}</strong>
+            <div style="font-size: 12px; color: var(--vp-c-text-3); margin-top:2px;">${m.text}</div>
+          </div>
+        `).join('');
+      }
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      renderSearchResults(e.target.value);
+    });
+
+    // 移动端菜单切换
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('sidebar').classList.toggle('open');
+    });
+
+    // 初始化渲染
+    renderChapter(0);
+  </script>
+</body>
+</html>
